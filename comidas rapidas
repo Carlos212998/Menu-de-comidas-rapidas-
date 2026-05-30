@@ -1,0 +1,68 @@
+def calcular_precio_final(categoria,precio_base,categoria_objetivo):
+    if categoria == categoria_objetivo:
+        descuento = precio_base * 0.15
+        return precio_base - descuento
+    else:
+        return precio_base
+    
+menu = {
+       
+     1: ("Hamburguesa", "comida rapida", 18000),
+     2: ("Pizza", "comida rapida", 22000),
+     3: ("Ensalada","comida saludable", 15000),
+     4: ("Sopa", "comida saludable", 8000),
+     5: ("Burger", "comida rapida", 25000),
+     6: ("Pasta", "comida italiana", 12000),
+ }
+categoria_objetivo = "comida rapida"
+umbral = 20000
+
+print("Menú del restaurante:")
+print("-"*60)
+
+for clave, producto in menu.items():
+        nombre, categoria, precio = producto
+        precio_final = calcular_precio_final(
+            categoria,
+            precio,
+            categoria_objetivo
+        )
+        
+        if precio_final >= umbral:
+            print(f"{clave}. {nombre} (${precio_final:,.0f})")
+        else:
+            print(f"{clave}. {nombre} (${precio:,.0f})")
+
+print("\nDetalles de los productos:")
+print("-"*60
+        )    
+      
+for clave, producto in menu.items():
+        nombre, categoria, precio = producto
+        precio_final = calcular_precio_final(
+            categoria,
+            precio,
+            categoria_objetivo
+        )
+        
+        print(f"{clave}. {nombre} - Categoría: {categoria} - Precio Original: ${precio:,.0f} - Precio Final: ${precio_final:,.0f}")
+        
+print("-"*60)
+
+print("\nProductos que cumplen con la condición:")
+print("-"*60)
+
+for clave, producto in menu.items():
+        nombre, categoria, precio = producto
+        precio_final = calcular_precio_final(
+            categoria,
+            precio,
+            categoria_objetivo
+        )
+        
+        if precio_final >= umbral:
+            print(f"{clave}. {nombre} - Categoría: {categoria} - Precio Original: ${precio:,.0f} - Precio Final: ${precio_final:,.0f}")
+
+print("-"*60)
+
+input("Presiona Enter para salir...")
